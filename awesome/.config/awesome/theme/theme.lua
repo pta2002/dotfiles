@@ -3,14 +3,32 @@
 --    By Adrian C. (anrxc)   --
 -------------------------------
 
-local themes_path = require("gears.filesystem").get_themes_dir()
+local gears = require("gears")
+local themes_path = gears.filesystem.get_configuration_dir()
+
 local rnotification = require("ruled.notification")
 local dpi = require("beautiful.xresources").apply_dpi
 
 -- {{{ Main
 local theme = {}
-theme.wallpaper = themes_path .. "zenburn/zenburn-background.png"
+theme.wallpaper = themes_path .. "theme/background.jpg"
 -- }}}
+
+local colors = {
+    "#16161C",
+    "#1A1C23",
+    "#1C1E26",
+    "#232530",
+    "#2E303E",
+    "#6C6F93",
+    "#E9436F",
+    "#E95379",
+    "#F43E5C",
+    "#09F7A0",
+    "#27D796",
+    "#21BFC2",
+    "#FAB28E"
+}
 
 -- {{{ Styles
 theme.font      = "sans 8"
@@ -28,9 +46,9 @@ theme.bg_systray = theme.bg_normal
 -- {{{ Borders
 theme.useless_gap   = dpi(5)
 theme.border_width  = dpi(2)
-theme.border_color_normal = "#3F3F3F"
-theme.border_color_active = "#6F6F6F"
-theme.border_color_marked = "#CC9393"
+theme.border_color_normal = colors[4]
+theme.border_color_active = colors[6]
+theme.border_color_marked = colors[7]
 -- }}}
 
 -- {{{ Titlebars
@@ -74,33 +92,33 @@ theme.menu_width  = dpi(100)
 
 -- {{{ Icons
 -- {{{ Taglist
-theme.taglist_squares_sel   = themes_path .. "zenburn/taglist/squarefz.png"
-theme.taglist_squares_unsel = themes_path .. "zenburn/taglist/squarez.png"
+theme.taglist_squares_sel   = themes_path .. "theme/taglist/squarefz.png"
+theme.taglist_squares_unsel = themes_path .. "theme/taglist/squarez.png"
 --theme.taglist_squares_resize = "false"
 -- }}}
 
 -- {{{ Misc
-theme.awesome_icon           = themes_path .. "zenburn/awesome-icon.png"
+theme.awesome_icon           = themes_path .. "theme/awesome-icon.png"
 theme.menu_submenu_icon      = themes_path .. "default/submenu.png"
 -- }}}
 
 -- {{{ Layout
-theme.layout_tile       = themes_path .. "zenburn/layouts/tile.png"
-theme.layout_tileleft   = themes_path .. "zenburn/layouts/tileleft.png"
-theme.layout_tilebottom = themes_path .. "zenburn/layouts/tilebottom.png"
-theme.layout_tiletop    = themes_path .. "zenburn/layouts/tiletop.png"
-theme.layout_fairv      = themes_path .. "zenburn/layouts/fairv.png"
-theme.layout_fairh      = themes_path .. "zenburn/layouts/fairh.png"
-theme.layout_spiral     = themes_path .. "zenburn/layouts/spiral.png"
-theme.layout_dwindle    = themes_path .. "zenburn/layouts/dwindle.png"
-theme.layout_max        = themes_path .. "zenburn/layouts/max.png"
-theme.layout_fullscreen = themes_path .. "zenburn/layouts/fullscreen.png"
-theme.layout_magnifier  = themes_path .. "zenburn/layouts/magnifier.png"
-theme.layout_floating   = themes_path .. "zenburn/layouts/floating.png"
-theme.layout_cornernw   = themes_path .. "zenburn/layouts/cornernw.png"
-theme.layout_cornerne   = themes_path .. "zenburn/layouts/cornerne.png"
-theme.layout_cornersw   = themes_path .. "zenburn/layouts/cornersw.png"
-theme.layout_cornerse   = themes_path .. "zenburn/layouts/cornerse.png"
+theme.layout_tile       = themes_path .. "theme/layouts/tile.png"
+theme.layout_tileleft   = themes_path .. "theme/layouts/tileleft.png"
+theme.layout_tilebottom = themes_path .. "theme/layouts/tilebottom.png"
+theme.layout_tiletop    = themes_path .. "theme/layouts/tiletop.png"
+theme.layout_fairv      = themes_path .. "theme/layouts/fairv.png"
+theme.layout_fairh      = themes_path .. "theme/layouts/fairh.png"
+theme.layout_spiral     = themes_path .. "theme/layouts/spiral.png"
+theme.layout_dwindle    = themes_path .. "theme/layouts/dwindle.png"
+theme.layout_max        = themes_path .. "theme/layouts/max.png"
+theme.layout_fullscreen = themes_path .. "theme/layouts/fullscreen.png"
+theme.layout_magnifier  = themes_path .. "theme/layouts/magnifier.png"
+theme.layout_floating   = themes_path .. "theme/layouts/floating.png"
+theme.layout_cornernw   = themes_path .. "theme/layouts/cornernw.png"
+theme.layout_cornerne   = themes_path .. "theme/layouts/cornerne.png"
+theme.layout_cornersw   = themes_path .. "theme/layouts/cornersw.png"
+theme.layout_cornerse   = themes_path .. "theme/layouts/cornerse.png"
 -- }}}
 
 -- {{{ Titlebar

@@ -38,7 +38,7 @@ end)
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "gnome-terminal"
+terminal = "kitty"
 editor = "nvim"
 editor_cmd = terminal .. " -- " .. editor
 
@@ -461,11 +461,11 @@ ruled.client.connect_signal("request::rules", function()
         properties = { floating = true }
     }
 
-    -- Add titlebars to normal clients and dialogs
+    -- Remove titlebars from normal clients and dialogs
     ruled.client.append_rule {
         id         = "titlebars",
         rule_any   = { type = { "normal", "dialog" } },
-        properties = { titlebars_enabled = true      }
+        properties = { titlebars_enabled = false     }
     }
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -539,3 +539,5 @@ end)
 client.connect_signal("mouse::enter", function(c)
     c:activate { context = "mouse_enter", raise = false }
 end)
+
+awful.spawn.with_shell(gears.filesystem.get_configuration_dir() .. "autorun.sh")
