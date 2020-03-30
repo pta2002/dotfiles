@@ -1,0 +1,3 @@
+# Dotfiles :)
+
+Uses stow
