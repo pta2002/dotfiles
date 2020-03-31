@@ -15,39 +15,49 @@ theme.wallpaper = themes_path .. "theme/background.jpg"
 -- }}}
 
 local colors = {
-    "#16161C",
-    "#1A1C23",
-    "#1C1E26",
-    "#232530",
-    "#2E303E",
-    "#6C6F93",
-    "#E9436F",
-    "#E95379",
-    "#F43E5C",
-    "#09F7A0",
-    "#27D796",
-    "#21BFC2",
-    "#FAB28E"
+    "#16161c",
+    "#1a1c23",
+-- Red
+    "#e95678",
+    "#ec6a88",
+-- Green
+    "#27d796",
+    "#3fdaa4",
+-- Yellow
+    "#fab795",
+    "#fbc3a7",
+-- Blue
+    "#26bbd9",
+    "#3fc4de",
+-- Magenta
+    "#ee64ac",
+    "#f075b5",
+-- Cyan
+    "#59e1e3",
+    "#6be4e6",
+-- White
+    "#fdf0ed",
+    "#ffffff",
 }
 
 -- {{{ Styles
 theme.font      = "sans 8"
 
 -- {{{ Colors
-theme.fg_normal  = "#DCDCCC"
-theme.fg_focus   = "#F0DFAF"
-theme.fg_urgent  = "#CC9393"
-theme.bg_normal  = "#3F3F3F"
-theme.bg_focus   = "#1E2320"
-theme.bg_urgent  = "#3F3F3F"
+theme.fg_normal  = colors[16]
+theme.fg_focus   = colors[15]
+theme.fg_urgent  = colors[3]
+theme.bg_normal  = colors[2]
+theme.bg_focus   = colors[1]
+theme.bg_urgent  = theme.bg_normal
 theme.bg_systray = theme.bg_normal
 -- }}}
 
 -- {{{ Borders
 theme.useless_gap   = dpi(5)
 theme.border_width  = dpi(4)
-theme.border_color_normal = colors[4]
-theme.border_color_active = colors[6]
+theme.border_color_normal = colors[1]
+theme.border_color_active = colors[9]
 theme.border_color_marked = colors[7]
 -- }}}
 
