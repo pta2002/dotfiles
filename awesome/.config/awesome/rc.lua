@@ -1,5 +1,4 @@
--- awesome_mode: api-level=4:screen=on
--- If LuaRocks is installed, make sure that packages installed through it are
+-- awesome_mode: api-level=4:screen=on If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
@@ -17,6 +16,9 @@ local naughty = require("naughty")
 local ruled = require("ruled")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+
+local volume = require("volume")
+
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -55,7 +57,7 @@ modkey = "Mod4"
 -- Create a launcher widget and a main menu
 myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-   { "manual", terminal .. " -e man awesome" },
+   { "manual", terminal .. " -- man awesome" },
    { "edit config", editor_cmd .. " " .. awesome.conffile },
    { "restart", awesome.restart },
    { "quit", function() awesome.quit() end },
@@ -361,6 +363,25 @@ awful.keyboard.append_global_keybindings({
         end,
     }
 })
+
+-- System keybindings
+awful.keyboard.append_global_keybindings({
+    awful.key {
+        key         = "XF86AudioRaiseVolume",
+        group       = "system",
+        description = "raise global volume",
+        modifiers   = {},
+        on_press    = volume.raise
+    },
+    awful.key {
+        key         = "XF86AudioLowerVolume",
+        group       = "system",
+        description = "lower global volume",
+        modifiers   = {},
+        on_press    = volume.lower
+    }
+})
+
 
 client.connect_signal("request::default_mousebindings", function()
     awful.mouse.append_client_mousebindings({

@@ -7,8 +7,13 @@
 Uses stow
 
 ## Requirements:
+
+These are the package names for arch/AUR, but I'm sure you can find it
+elsewhere
+
  - awesome
  - picom-tryone-git
  - kitty
- - hack-ttf
+ - ttf-hack
  - neovim
+ - pamixer
