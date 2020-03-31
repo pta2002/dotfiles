@@ -41,7 +41,7 @@ end)
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "kitty"
+terminal = "termite"
 editor = "nvim"
 editor_cmd = terminal .. " -- " .. editor
 

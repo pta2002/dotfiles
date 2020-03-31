@@ -12,8 +12,8 @@ These are the package names for arch/AUR, but I'm sure you can find it
 elsewhere
 
  - awesome
- - picom-tryone-git
- - kitty
+ - git clone https://github.com/ibhagwan/picom-ibhagwan-git
+ - termite
  - ttf-hack
  - neovim
  - pamixer
