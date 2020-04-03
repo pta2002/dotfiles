@@ -48,7 +48,7 @@ theme.fg_normal  = colors[16]
 theme.fg_focus   = colors[15]
 theme.fg_urgent  = colors[3]
 theme.bg_normal  = colors[2]
-theme.bg_focus   = colors[1]
+theme.bg_focus   = colors[9]
 theme.bg_urgent  = theme.bg_normal
 theme.bg_systray = theme.bg_normal
 -- }}}
