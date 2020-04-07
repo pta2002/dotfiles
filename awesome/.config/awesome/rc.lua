@@ -294,7 +294,10 @@ awful.keyboard.append_global_keybindings({
         description = "lower global volume",
         modifiers   = {},
         on_press    = volume.lower
-    }
+    },
+    awful.key ({ "Control", "Shift" }, "Print", function()
+        awful.spawn('sh -c "maim -s | xclip -sel clipboard -t image/png"')
+    end, { description = "Select a region and copy it to clipboard", group = "screenshot"})
 })
 
 
