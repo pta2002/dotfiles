@@ -20,6 +20,7 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
 local volume = require("modules.volume")
+local machine = require("settings")
 
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -295,7 +296,7 @@ awful.keyboard.append_global_keybindings({
         modifiers   = {},
         on_press    = volume.lower
     },
-    awful.key ({ "Control", "Shift" }, "Print", function()
+    awful.key ({ "Control", "Shift" }, machine.printkey, function()
         awful.spawn('sh -c "maim -s | xclip -sel clipboard -t image/png"')
     end, { description = "Select a region and copy it to clipboard", group = "screenshot"})
 })
