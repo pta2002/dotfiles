@@ -66,6 +66,17 @@ theme.titlebar_bg_focus  = "#3F3F3F"
 theme.titlebar_bg_normal = "#3F3F3F"
 -- }}}
 
+theme.taglist_text_font  = "Hack Nerd Font"
+theme.taglist_text_empty    = {"", "", "", "", "", "", "", "", ""}
+theme.taglist_text_occupied = {"", "", "", "", "", "", "", "", ""}
+theme.taglist_text_focused  = {"", "", "", "", "", "", "", "", ""}
+theme.taglist_text_urgent   = {"", "", "", "", "", "", "", "", ""}
+
+theme.taglist_text_color_empty = { colors[15], colors[15], colors[15], colors[15], colors[15], colors[15], colors[15], colors[15], colors[15] }
+theme.taglist_text_color_occupied = { colors[15], colors[15], colors[15], colors[15], colors[15], colors[15], colors[15], colors[15], colors[15] }
+theme.taglist_text_color_focused = { colors[9], colors[9], colors[9], colors[9], colors[9], colors[9], colors[9], colors[9], colors[9] }
+theme.taglist_text_color_urgent = { colors[3], colors[3], colors[3], colors[3], colors[3], colors[3], colors[3], colors[3], colors[3] }
+
 -- There are other variable sets
 -- overriding the default one when
 -- defined, the sets are:
@@ -110,54 +121,6 @@ theme.taglist_squares_unsel = themes_path .. "theme/taglist/squarez.png"
 -- {{{ Misc
 theme.awesome_icon           = themes_path .. "theme/awesome-icon.png"
 theme.menu_submenu_icon      = themes_path .. "default/submenu.png"
--- }}}
-
--- {{{ Layout
-theme.layout_tile       = themes_path .. "theme/layouts/tile.png"
-theme.layout_tileleft   = themes_path .. "theme/layouts/tileleft.png"
-theme.layout_tilebottom = themes_path .. "theme/layouts/tilebottom.png"
-theme.layout_tiletop    = themes_path .. "theme/layouts/tiletop.png"
-theme.layout_fairv      = themes_path .. "theme/layouts/fairv.png"
-theme.layout_fairh      = themes_path .. "theme/layouts/fairh.png"
-theme.layout_spiral     = themes_path .. "theme/layouts/spiral.png"
-theme.layout_dwindle    = themes_path .. "theme/layouts/dwindle.png"
-theme.layout_max        = themes_path .. "theme/layouts/max.png"
-theme.layout_fullscreen = themes_path .. "theme/layouts/fullscreen.png"
-theme.layout_magnifier  = themes_path .. "theme/layouts/magnifier.png"
-theme.layout_floating   = themes_path .. "theme/layouts/floating.png"
-theme.layout_cornernw   = themes_path .. "theme/layouts/cornernw.png"
-theme.layout_cornerne   = themes_path .. "theme/layouts/cornerne.png"
-theme.layout_cornersw   = themes_path .. "theme/layouts/cornersw.png"
-theme.layout_cornerse   = themes_path .. "theme/layouts/cornerse.png"
--- }}}
-
--- {{{ Titlebar
-theme.titlebar_close_button_focus  = themes_path .. "zenburn/titlebar/close_focus.png"
-theme.titlebar_close_button_normal = themes_path .. "zenburn/titlebar/close_normal.png"
-
-theme.titlebar_minimize_button_normal = themes_path .. "default/titlebar/minimize_normal.png"
-theme.titlebar_minimize_button_focus  = themes_path .. "default/titlebar/minimize_focus.png"
-
-theme.titlebar_ontop_button_focus_active  = themes_path .. "zenburn/titlebar/ontop_focus_active.png"
-theme.titlebar_ontop_button_normal_active = themes_path .. "zenburn/titlebar/ontop_normal_active.png"
-theme.titlebar_ontop_button_focus_inactive  = themes_path .. "zenburn/titlebar/ontop_focus_inactive.png"
-theme.titlebar_ontop_button_normal_inactive = themes_path .. "zenburn/titlebar/ontop_normal_inactive.png"
-
-theme.titlebar_sticky_button_focus_active  = themes_path .. "zenburn/titlebar/sticky_focus_active.png"
-theme.titlebar_sticky_button_normal_active = themes_path .. "zenburn/titlebar/sticky_normal_active.png"
-theme.titlebar_sticky_button_focus_inactive  = themes_path .. "zenburn/titlebar/sticky_focus_inactive.png"
-theme.titlebar_sticky_button_normal_inactive = themes_path .. "zenburn/titlebar/sticky_normal_inactive.png"
-
-theme.titlebar_floating_button_focus_active  = themes_path .. "zenburn/titlebar/floating_focus_active.png"
-theme.titlebar_floating_button_normal_active = themes_path .. "zenburn/titlebar/floating_normal_active.png"
-theme.titlebar_floating_button_focus_inactive  = themes_path .. "zenburn/titlebar/floating_focus_inactive.png"
-theme.titlebar_floating_button_normal_inactive = themes_path .. "zenburn/titlebar/floating_normal_inactive.png"
-
-theme.titlebar_maximized_button_focus_active  = themes_path .. "zenburn/titlebar/maximized_focus_active.png"
-theme.titlebar_maximized_button_normal_active = themes_path .. "zenburn/titlebar/maximized_normal_active.png"
-theme.titlebar_maximized_button_focus_inactive  = themes_path .. "zenburn/titlebar/maximized_focus_inactive.png"
-theme.titlebar_maximized_button_normal_inactive = themes_path .. "zenburn/titlebar/maximized_normal_inactive.png"
--- }}}
 -- }}}
 
 -- Set different colors for urgent notifications.
