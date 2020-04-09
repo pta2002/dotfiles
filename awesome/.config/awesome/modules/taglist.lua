@@ -152,6 +152,8 @@ local function taglist(s)
         update_widget()
     end)
 
+    update_widget()
+
     return text_taglist
 end
 
