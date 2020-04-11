@@ -70,7 +70,7 @@ theme.taglist_text_font  = "Hack Nerd Font"
 theme.taglist_text_empty    = {"", "", "", "", "", "", "", "", ""}
 theme.taglist_text_occupied = {"", "", "", "", "", "", "", "", ""}
 theme.taglist_text_focused  = {"", "", "", "", "", "", "", "", ""}
-theme.taglist_text_urgent   = {"", "", "", "", "", "", "", "", ""}
+theme.taglist_text_urgent   = {"", "", "", "", "", "", "", "", ""}
 
 theme.taglist_text_color_empty = { colors[15], colors[15], colors[15], colors[15], colors[15], colors[15], colors[15], colors[15], colors[15] }
 theme.taglist_text_color_occupied = { colors[15], colors[15], colors[15], colors[15], colors[15], colors[15], colors[15], colors[15], colors[15] }

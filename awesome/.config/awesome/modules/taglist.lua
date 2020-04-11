@@ -108,15 +108,26 @@ local function taglist(s)
           tag_clients = s.tags[i]:clients()
         end
 
+        local color
+        local text = tf[i]
+
         if s.tags[i] and s.tags[i].selected then
-            tag_text[i].markup = helpers.colorize_text(tf[i], cf[i])
+            color = cf[i]
         elseif s.tags[i] and s.tags[i].urgent then
-            tag_text[i].markup = helpers.colorize_text(tu[i], cu[i])
+            color = cu[i]
         elseif tag_clients and #tag_clients > 0 then
-            tag_text[i].markup = helpers.colorize_text(to[i], co[i])
+            color = co[i]
         else
-            tag_text[i].markup = helpers.colorize_text(te[i], ce[i])
+            color = ce[i]
         end
+
+        if s.tags[i] and s.tags[i].urgent then
+            text = tu[i]
+        elseif tag_clients and #tag_clients > 0 then
+            text = to[i]
+        end
+
+        tag_text[i].markup = helpers.colorize_text(text, color)
       end
     end
 
