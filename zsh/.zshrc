@@ -1,9 +1,6 @@
 # TEMP
 source ~/.zprofile
 
-# Source a plugin manager
-source "$DOTFILES/zgen/zgen.zsh"
-
 # Appearance
 autoload -U colors && colors
 source $ZDOTDIR/prompt.zsh
@@ -17,18 +14,15 @@ HISTFILE="$ZSH_CACHE/history"
 setopt SHARE_HISTORY # share history between sessions ???
 setopt EXTENDED_HISTORY # add timestamps to history
 
-# Search history with Up and Down arrows
-autoload -U history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "^[[A" history-beginning-search-backward-end
-bindkey "^[[B" history-beginning-search-forward-end
-
 # Autocomplete
 setopt always_to_end #move cursor to the end of the word    
 setopt auto_menu # show completion menu on successive tab press
 setopt auto_name_dirs
 setopt complete_in_word # Allow completion from within a word/phrase
+
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' # Case insensitive
+
 
 # Keys that don't work
 bindkey -e
@@ -49,10 +43,21 @@ alias vim='nvim'
 alias vi='nvim'
 alias v='nvim'
 
+# Plugins
+source "$DOTFILES/zgen/zgen.zsh"
 if ! zgen saved; then
     echo "Creating a zgen save"
 
     zgen load zsh-users/zsh-syntax-highlighting
+    zgen load zsh-users/zsh-history-substring-search
 
     zgen save
 fi
+
+# Search history with Up and Down arrows
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
+
+# Make history search not highlight anything
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=""
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=""
