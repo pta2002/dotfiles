@@ -22,6 +22,7 @@ setopt complete_in_word # Allow completion from within a word/phrase
 
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' # Case insensitive
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
 
 # Keys that don't work
