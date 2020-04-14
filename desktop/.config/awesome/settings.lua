@@ -1,1 +1,4 @@
-return { printkey = "XF86Eject" }
+return {
+    printkey = "XF86Eject",
+    battery = false,
+}

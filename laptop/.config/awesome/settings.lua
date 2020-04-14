@@ -1,1 +1,4 @@
-return { printkey = "Print" }
+return {
+    printkey = "Print",
+    battery = true,
+}
