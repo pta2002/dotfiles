@@ -45,8 +45,8 @@ beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "termite"
-editor = "nvim"
-editor_cmd = terminal .. " -- " .. editor
+editor = "emacs"
+editor_cmd = editor
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -141,6 +141,8 @@ awful.keyboard.append_global_keybindings({
               {description = "lua execute prompt", group = "awesome"}),
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey,           }, "e", function () awful.spawn(editor_cmd) end,
+              {description = "open emacs", group = "launcher"}),
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
     awful.key({ modkey }, "p", function() menubar.show() end,
