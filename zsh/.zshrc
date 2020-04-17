@@ -44,6 +44,10 @@ alias vim='nvim'
 alias vi='nvim'
 alias v='nvim'
 
+alias copy='xclip -sel clip'
+
+alias g='git'
+
 # Plugins
 source "$DOTFILES/zgen/zgen.zsh"
 if ! zgen saved; then
