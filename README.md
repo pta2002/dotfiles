@@ -17,6 +17,7 @@ elsewhere
  - ttf-hack
  - neovim
  - pamixer
+ - gitprompt (https://github.com/pta2002/gitprompt)
 
 ## Instalation
 Use `stow [thing]` to have stow set up the configs for that. If you install the fonts, don't forget- to rebuild the font cache (`fc-cache`)
