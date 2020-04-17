@@ -113,12 +113,6 @@ end)
 
 require("modules.bar")
 
--- {{{ Mouse bindings
-awful.mouse.append_global_mousebindings({
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
-})
--- }}}
-
 -- {{{ Key bindings
 
 -- General Awesome keys
