@@ -49,3 +49,11 @@
 ;; This is required for some packages whose default branch isn't 'master' (which
 ;; our package manager can't deal with; see raxod502/straight.el#279)
 ;(package! builtin-package :recipe (:branch "develop"))
+
+(package! pdf-tools)
+
+(def-package! pdf-tools
+  :if (display-graphic-p)
+  :mode ("\\.pdf$" . pdf-view-mode)
+  :init (load "pdf-tools-autoloads" nil t)
+  :config (pdf-tools-install))
