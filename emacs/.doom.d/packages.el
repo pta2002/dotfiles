@@ -52,7 +52,7 @@
 
 (package! pdf-tools)
 
-(def-package! pdf-tools
+(use-package! pdf-tools
   :if (display-graphic-p)
   :mode ("\\.pdf$" . pdf-view-mode)
   :init (load "pdf-tools-autoloads" nil t)
