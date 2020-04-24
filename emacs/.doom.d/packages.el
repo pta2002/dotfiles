@@ -51,9 +51,3 @@
 ;(package! builtin-package :recipe (:branch "develop"))
 
 (package! pdf-tools)
-
-(use-package! pdf-tools
-  :if (display-graphic-p)
-  :mode ("\\.pdf$" . pdf-view-mode)
-  :init (load "pdf-tools-autoloads" nil t)
-  :config (pdf-tools-install))

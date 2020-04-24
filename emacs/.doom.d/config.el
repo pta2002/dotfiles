@@ -24,7 +24,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-horizon)
+(setq doom-theme 'doom-spacegrey)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -62,3 +62,9 @@
     'alpha (if (frame-parameter (selected-frame) 'fullscreen)
               100
              doom-frame-transparency)))
+
+(def-package! pdf-tools
+  :if (display-graphic-p)
+  :mode ("\\.pdf$" . pdf-view-mode)
+  :init (load "pdf-tools-autoloads" nil t)
+  :config (pdf-tools-install))

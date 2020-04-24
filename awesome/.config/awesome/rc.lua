@@ -22,9 +22,6 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 local volume = require("modules.volume")
 local machine = require("settings")
 
-local treetile = require("treetile")
-treetile.focusnew = true
-
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
