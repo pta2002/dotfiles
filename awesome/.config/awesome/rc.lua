@@ -21,6 +21,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 
 local volume = require("modules.volume")
 local machine = require("settings")
+local mpris = require("evil.mpris")
 
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -217,6 +218,16 @@ awful.keyboard.append_global_keybindings({
               {description = "select previous", group = "layout"}),
 })
 
+-- Music related keybindings
+awful.keyboard.append_global_keybindings({
+    awful.key({ "Control", "Mod1" }, "space", function () mpris:play_pause() end,
+      {description = "toggle pause/play on media player", group = "media"}),
+    awful.key({ "Control", "Mod1" }, "Right", function () mpris:go_next() end,
+      {description = "go to next song on media player", group = "media"}),
+    awful.key({ "Control", "Mod1" }, "Left", function () mpris:go_prev() end,
+      {description = "go to previous song on media player", group = "media"}),
+    
+})
 
 awful.keyboard.append_global_keybindings({
     awful.key {
