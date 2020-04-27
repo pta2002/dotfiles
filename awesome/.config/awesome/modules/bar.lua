@@ -2,6 +2,8 @@ local awful = require("awful")
 local wibox = require("wibox")
 local taglist = require("modules.taglist")
 local settings = require("settings")
+local music = require("widgets.music")
+local dpi = require("beautiful.xresources").apply_dpi
 
 local mytextclock = wibox.widget.textclock()
 
@@ -33,6 +35,8 @@ screen.connect_signal("request::desktop_decoration", function(s)
         { layout = wibox.layout.flex.horizontal },
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+            spacing = dpi(10),
+            music,
             wibox.widget.systray(),
             battery,
             mytextclock,
