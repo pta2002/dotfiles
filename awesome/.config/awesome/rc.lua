@@ -226,7 +226,12 @@ awful.keyboard.append_global_keybindings({
       {description = "go to next song on media player", group = "media"}),
     awful.key({ "Control", "Mod1" }, "Left", function () mpris:go_prev() end,
       {description = "go to previous song on media player", group = "media"}),
-    
+    awful.key({}, "XF86AudioPlay", function () mpris:play_pause() end,
+      {description = "toggle pause/play on media player", group = "media"}),
+    awful.key({}, "XF86AudioNext", function () mpris:go_next() end,
+      {description = "go to next song on media player", group = "media"}),
+    awful.key({}, "XF86AudioPrev", function () mpris:go_prev() end,
+      {description = "go to previous song on media player", group = "media"}),
 })
 
 awful.keyboard.append_global_keybindings({

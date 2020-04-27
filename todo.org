@@ -16,10 +16,10 @@ not just from MPD.
 This isn't a huge issue, but it'd be nice if it was async
 ** [ ] cd into directories by just typing the directory name
 ** [ ] Figure out why $fpath isn't loaded properly on emacs
-* Emacs [0/3]
+* Emacs [0/1]
 ** [ ] Fix the built-in terminal
 *** [ ] Fix colors
-*** [ ] Fix ZSH's $fpath
+*** [X] Fix ZSH's $fpath
 * Git [0/1]
 ** [ ] Set up git aliases
 I need to find some way of sharing them without also sharing the personal
