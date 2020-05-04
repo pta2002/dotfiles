@@ -36,9 +36,9 @@ bindkey '^[[1;5D' backward-word
 export WORDCHARS="_"
 
 # Aliases
-alias ls='ls --color=auto'
-alias ll='ls -lh'
-alias la='ls -a'
+alias ls='exa'
+alias ll='exa -lh'
+alias la='exa -a'
 
 alias vim='nvim'
 alias vi='nvim'
@@ -47,6 +47,8 @@ alias v='nvim'
 alias copy='xclip -sel clip'
 
 alias g='git'
+
+alias cal='LC_TIME=en_US.UTF-8 cal --monday'
 
 # Plugins
 source "$DOTFILES/zgen/zgen.zsh"
