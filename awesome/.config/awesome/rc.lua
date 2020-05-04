@@ -228,6 +228,12 @@ awful.keyboard.append_global_keybindings({
       {description = "go to next song on media player", group = "media"}),
     awful.key({ "Control", "Mod1" }, "Left", function () mpris:go_prev() end,
       {description = "go to previous song on media player", group = "media"}),
+    awful.key({}, "XF86AudioPlay", function () mpris:play_pause() end,
+      {description = "toggle pause/play on media player", group = "media"}),
+    awful.key({}, "XF86AudioNext", function () mpris:go_next() end,
+      {description = "go to next song on media player", group = "media"}),
+    awful.key({}, "XF86AudioPrev", function () mpris:go_prev() end,
+      {description = "go to previous song on media player", group = "media"}),
 })
 
 awful.keyboard.append_global_keybindings({
@@ -434,12 +440,16 @@ ruled.notification.connect_signal('request::rules', function()
         properties = {
             screen           = awful.screen.preferred,
             implicit_timeout = 5,
+            bg               = '#ff000000'
         }
     }
 end)
 
 naughty.connect_signal("request::display", function(n)
-    naughty.layout.box { notification = n }
+    naughty.layout.box {
+        notification = n,
+        bg           = '#00000000' -- Make box bg transparent
+    }
 end)
 
 -- }}}
