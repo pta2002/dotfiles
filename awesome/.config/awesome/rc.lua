@@ -141,6 +141,8 @@ awful.keyboard.append_global_keybindings({
               {description = "open emacs", group = "launcher"}),
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
+    awful.key({ modkey },            "space",     function () awful.spawn("rofi -show drun") end,
+              {description = "open rofi", group = "launcher"}),
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
 })
@@ -212,8 +214,8 @@ awful.keyboard.append_global_keybindings({
               {description = "increase the number of columns", group = "layout"}),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
               {description = "decrease the number of columns", group = "layout"}),
-    awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
-              {description = "select next", group = "layout"}),
+    -- awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
+    --           {description = "select next", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 })
@@ -226,7 +228,6 @@ awful.keyboard.append_global_keybindings({
       {description = "go to next song on media player", group = "media"}),
     awful.key({ "Control", "Mod1" }, "Left", function () mpris:go_prev() end,
       {description = "go to previous song on media player", group = "media"}),
-    
 })
 
 awful.keyboard.append_global_keybindings({
