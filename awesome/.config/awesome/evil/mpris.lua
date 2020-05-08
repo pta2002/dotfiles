@@ -18,7 +18,7 @@ end
 local function parse_format(out)
   return function(line)
     if line ~= "---" then
-      local key, val = line:match("(%w+) (.+)")
+      local key, val = line:match("(%w+) (.*)")
       out[key] = val
     else
       awesome.emit_signal("evil::mpris", out)
