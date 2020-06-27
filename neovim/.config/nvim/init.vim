@@ -26,6 +26,9 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 set termguicolors
 colorscheme horizon
 
+" Enable the mouse
+set mouse=a
+
 " Ensure the background is transparent
 hi Normal guibg=NONE ctermbg=NONE
 hi NonText guibg=NONE ctermbg=NONE

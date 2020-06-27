@@ -10,8 +10,10 @@ local music_status = wibox.widget {
 }
 
 local function get_markup()
-  if status.title and status.artist then
+  if status.title and status.artist ~= "" then
     music_status.markup = status.artist .. ' - ' .. status.title
+  elseif status.title then
+    music_status.markup = status.title
   end
 end
 

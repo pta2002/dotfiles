@@ -6,8 +6,8 @@ autoload -U colors && colors
 source $ZDOTDIR/prompt.zsh
 
 # History
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=100000
 ZSH_CACHE="$XDG_CACHE_HOME/zsh"
 mkdir -p $ZSH_CACHE
 HISTFILE="$ZSH_CACHE/history"
@@ -49,6 +49,8 @@ alias copy='xclip -sel clip'
 alias g='git'
 
 alias cal='LC_TIME=en_US.UTF-8 cal --monday'
+
+alias newjacksink='pactl load-module module-jack-sink client_name=pulse_sink_2 connect=yes'
 
 # Plugins
 source "$DOTFILES/zgen/zgen.zsh"
