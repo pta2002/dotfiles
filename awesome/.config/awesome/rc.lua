@@ -459,4 +459,5 @@ client.connect_signal("mouse::enter", function(c)
     c:activate { context = "mouse_enter", raise = false }
 end)
 
-awful.spawn.with_shell(gears.filesystem.get_configuration_dir() .. "autorun.sh")
+awful.spawn.with_shell(gears.filesystem.get_configuration_dir() .. "autorun.sh &")
+
