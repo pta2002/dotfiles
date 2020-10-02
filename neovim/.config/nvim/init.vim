@@ -5,22 +5,29 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'tpope/vim-surround'              " Easily surround things in quotes, parentheses, etc.
 Plug 'tpope/vim-commentary'            " Easily comment/uncomment things with gcc
 Plug 'tpope/vim-sensible'              " Some sensible defaults
+Plug 'tpope/vim-endwise'               " Automatically add 'end', 'endif', etc.
+Plug 'tpope/vim-sleuth'                " Automatically detect indentation
 Plug 'godlygeek/tabular'               " Easily align things with :Tabularize
 
 " Theming
 Plug 'vim-airline/vim-airline'         " Nice looking status bar
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ntk148v/vim-horizon'
+Plug 'morhetz/gruvbox'
 
 " Languages
 Plug 'dag/vim-fish'                    " Fish scripting
 Plug 'neovimhaskell/haskell-vim'       " Haskell
+Plug 'ekalinin/Dockerfile.vim'         " Docker
+Plug 'cespare/vim-toml.git'            " TOML
 
 " IDE things
 Plug 'neovim/nvim-lspconfig'           " Requires v0.5
 Plug 'nvim-treesitter/nvim-treesitter' " Requires v0.5
 Plug 'tpope/vim-fugitive'              " Git integration
 Plug 'nvim-lua/completion-nvim'        " Autocomplete based on LSP
+Plug 'junegunn/fzf.vim'                " Fuzzy finding
+Plug 'junegunn/fzf'
 
 call plug#end()
 
@@ -40,8 +47,7 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Color theme
 set termguicolors
-colorscheme horizon
-let g:airline_theme='bubblegum'
+colorscheme gruvbox
 
 " Enable the mouse
 set mouse=a
@@ -68,6 +74,13 @@ filetype plugin indent on
 
 " Tab complete case insensitive
 set wildignorecase
+
+" Enable fly mode for auto-pairs
+let g:AutoPairsFlyMode=1
+
+" Ignore things ignored by .gitignore for fzf
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+nnoremap <leader><leader> :Files<CR>
 
 " Load Lua init file
 lua <<EOF
@@ -98,3 +111,6 @@ set completeopt=menuone,noinsert,noselect
 
 " Avoid showing message extra message when using completion
 set shortmess+=c
+
+" Style the popup window
+set pumheight=10 pumwidth=20    " Limit the popup window to 20x10
