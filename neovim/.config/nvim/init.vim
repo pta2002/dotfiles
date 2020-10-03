@@ -34,6 +34,9 @@ call plug#end()
 
 let g:airline_powerline_fonts = 1
 
+"""""""""""""""
+" Keybindings "
+"""""""""""""""
 " Set leader key
 let mapleader = ","
 
@@ -43,8 +46,32 @@ map ç :
 map - /
 
 " Quickly edit/reload the vimrc
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
+nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" Use system clipboard by prefixing copy/paste commands with leader
+nnoremap <leader>y "+y
+nnoremap <leader>p "+p
+
+" ,g to open Git status
+nnoremap <leader>g :Git<CR>
+
+" ,, for FZF
+nnoremap <leader><leader> :Files<CR>
+
+" LSP keys
+nnoremap <leader>ld :lua vim.lsp.buf.declaration()<CR>
+nnoremap <leader>lf :lua vim.lsp.buf.definition()<CR>
+nnoremap <leader>ff :lua vim.lsp.buf.formatting()<CR>
+nnoremap <leader>n :NextDiagnosticCycle<CR>
+nnoremap <leader>p :PrevDiagnosticCycle<CR>
+
+" Use Tab and S-Tab to navigate
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+imap <silent> <c-Space> <Plug>(completion_trigger)
+
 
 " Color theme
 set termguicolors
@@ -55,10 +82,6 @@ set mouse=a
 
 " Allow switching buffers without saving first
 set hidden
-
-" Use system clipboard by prefixing copy/paste commands with leader
-nnoremap <leader>y "+y
-nnoremap <leader>p "+p
 
 " Ensure the background is transparent
 hi Normal guibg=NONE ctermbg=NONE
@@ -81,7 +104,6 @@ set wildignorecase
 
 " Ignore things ignored by .gitignore for fzf
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-nnoremap <leader><leader> :Files<CR>
 
 " Don't show numbers in the terminal, and start in insert mode
 autocmd TermOpen * setlocal nonumber | :startinsert
@@ -94,19 +116,7 @@ autocmd Filetype c setlocal omnifunc=v:lua.vim.lsp.omnifunc
 autocmd Filetype cpp setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
 autocmd CompleteDone * pclose
-
-nnoremap <leader>ld :lua vim.lsp.buf.declaration()<CR>
-nnoremap <leader>lf :lua vim.lsp.buf.definition()<CR>
-nnoremap <leader>ff :lua vim.lsp.buf.formatting()<CR>
-nnoremap <leader>n :NextDiagnosticCycle<CR>
-nnoremap <leader>p :PrevDiagnosticCycle<CR>
-
-" Use Tab and S-Tab to navigate
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-imap <silent> <c-Space> <Plug>(completion_trigger)
-
+"
 " Only trigger autocomplete if it's longer than 3 characters
 let g:completion_trigger_keyword_length = 3
 
