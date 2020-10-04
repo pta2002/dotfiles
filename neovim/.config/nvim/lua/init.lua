@@ -14,10 +14,19 @@ require('nvim_lsp').rls.setup{
     on_attach = lsp_attach
 }
 
+require('nvim_lsp').html.setup{
+    on_attach = lsp_attach
+}
+
+require('nlua.lsp.nvim').setup(require('nvim_lsp'), {
+    on_attach = lsp_attach
+})
+
 -- Treesitter
 require'nvim-treesitter.configs'.setup {
     ensure_installed = "all",
     highlight = {
         enable = true,
+        disable = { "lua" }
     },
 }

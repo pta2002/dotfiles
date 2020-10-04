@@ -8,6 +8,7 @@ Plug 'tpope/vim-sensible'               " Some sensible defaults
 Plug 'tpope/vim-endwise'                " Automatically add 'end', 'endif', etc.
 Plug 'tpope/vim-sleuth'                 " Automatically detect indentation
 Plug 'godlygeek/tabular'                " Easily align things with :Tabularize
+Plug 'vimwiki/vimwiki'                  " Knowledge-base
 
 " Theming
 Plug 'vim-airline/vim-airline'          " Nice looking status bar
@@ -20,6 +21,9 @@ Plug 'dag/vim-fish'                     " Fish scripting
 Plug 'neovimhaskell/haskell-vim'        " Haskell
 Plug 'ekalinin/Dockerfile.vim'          " Docker
 Plug 'cespare/vim-toml'                 " TOML
+Plug 'bfredl/nvim-luadev'               " Lua REPL
+Plug 'tjdevries/nlua.nvim'              " Lua NVIM LSP
+Plug 'euclidianAce/BetterLua.vim'       " Better Lua highlighting
 
 " IDE things
 Plug 'neovim/nvim-lspconfig'            " Requires v0.5
@@ -28,7 +32,8 @@ Plug 'tpope/vim-fugitive'               " Git integration
 Plug 'nvim-lua/completion-nvim'         " Autocomplete based on LSP
 Plug 'junegunn/fzf.vim'                 " Fuzzy finding
 Plug 'junegunn/fzf'                     " Fuzzy finding
-Plug 'nvim-lua/diagnostic-nvim'          " Pretty diagnostics for LSP
+Plug 'nvim-lua/diagnostic-nvim'         " Pretty diagnostics for LSP
+Plug '~/Projects/neo-emmet'
 
 call plug#end()
 
@@ -39,6 +44,8 @@ let g:airline_powerline_fonts = 1
 """""""""""""""
 " Set leader key
 let mapleader = ","
+" Since we used , as a leader, let's map - to do what , previously did
+nnoremap - ,
 
 " Stop requiring shift for common actions! Search and : are now just one
 " keystroke away
@@ -46,12 +53,12 @@ map ç :
 map - /
 
 " Quickly edit/reload the vimrc
-nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
+nnoremap <silent> <leader>ev :vs $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Use system clipboard by prefixing copy/paste commands with leader
 nnoremap <leader>y "+y
-nnoremap <leader>p "+p
+nnoremap <leader>P "+p
 
 " ,g to open Git status
 nnoremap <leader>g :Git<CR>
@@ -72,6 +79,11 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 imap <silent> <c-Space> <Plug>(completion_trigger)
 
+" Execute current lua line
+autocmd FileType lua nmap <leader>r <Plug>(Luadev-RunLine)
+autocmd FileType lua vmap <leader>r <Plug>(Luadev-Run)
+autocmd FileType lua silent! nmap <leader>ll :Luadev<CR>
+
 
 " Color theme
 set termguicolors
@@ -91,6 +103,9 @@ hi LineNr guibg=NONE ctermbg=NONE
 
 " Show numbers
 set number
+
+" Show a live preview of the substitution
+set inccommand=nosplit
 
 " Set indentation
 set tabstop=4
