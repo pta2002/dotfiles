@@ -11,7 +11,13 @@ function fish_prompt
         set __status_state (printf "%s%s " (set_color red) $__last_command_exit_status)
     end
 
-    printf "%s%s%s %s» %s" (set_color blue) (prompt_pwd) (gitprompt) $__status_state (set_color normal)
+    set -l git (gitprompt)
+
+    if test $git
+        printf "%s%s%s %s» %s" (set_color blue) (prompt_pwd) $git $__status_state (set_color normal)
+    else
+        printf "%s%s %s%s» %s" (set_color blue) (prompt_pwd) (set_color normal) $__status_state (set_color normal)
+    end
 end
 
 alias vim="nvim"

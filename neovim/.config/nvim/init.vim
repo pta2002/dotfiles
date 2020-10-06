@@ -33,7 +33,7 @@ Plug 'nvim-lua/completion-nvim'         " Autocomplete based on LSP
 Plug 'junegunn/fzf.vim'                 " Fuzzy finding
 Plug 'junegunn/fzf'                     " Fuzzy finding
 Plug 'nvim-lua/diagnostic-nvim'         " Pretty diagnostics for LSP
-Plug '~/Projects/neo-emmet'
+Plug 'mattn/emmet-vim'                  " Emmet
 
 call plug#end()
 
@@ -49,8 +49,8 @@ nnoremap - ,
 
 " Stop requiring shift for common actions! Search and : are now just one
 " keystroke away
-map ç :
-map - /
+noremap ç :
+noremap - /
 
 " Quickly edit/reload the vimrc
 nnoremap <silent> <leader>ev :vs $MYVIMRC<CR>
@@ -78,11 +78,12 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 imap <silent> <c-Space> <Plug>(completion_trigger)
+autocmd FileType html imap <c-Space> <c-y>,
 
 " Execute current lua line
-autocmd FileType lua nmap <leader>r <Plug>(Luadev-RunLine)
-autocmd FileType lua vmap <leader>r <Plug>(Luadev-Run)
-autocmd FileType lua silent! nmap <leader>ll :Luadev<CR>
+autocmd FileType lua nnoremap <leader>r <Plug>(Luadev-RunLine)
+autocmd FileType lua vnoremap <leader>r <Plug>(Luadev-Run)
+autocmd FileType lua silent! nnoremap <leader>ll :Luadev<CR>
 
 
 " Color theme
