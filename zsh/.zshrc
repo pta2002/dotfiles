@@ -68,3 +68,4 @@ bindkey "^[[B" history-substring-search-down
 # Make history search not highlight anything
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=""
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=""
+alias sourcenvm='source /usr/share/nvm/init-nvm.sh'
