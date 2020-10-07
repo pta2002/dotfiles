@@ -41,7 +41,7 @@ local colors = {
 }
 
 -- {{{ Styles
-theme.font      = "sans 8"
+theme.font      = "Hack Nerd Font 11"
 
 -- {{{ Colors
 theme.fg_normal  = colors[16]
@@ -51,6 +51,8 @@ theme.bg_normal  = colors[2]
 theme.bg_focus   = colors[9]
 theme.bg_urgent  = theme.bg_normal
 theme.bg_systray = theme.bg_normal
+
+theme.green = colors[5]
 -- }}}
 
 -- {{{ Borders
