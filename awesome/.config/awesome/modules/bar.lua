@@ -4,8 +4,9 @@ local taglist = require("modules.taglist")
 local settings = require("settings")
 local music = require("widgets.music")
 local dpi = require("beautiful.xresources").apply_dpi
+local beautiful = require("beautiful")
 
-local mytextclock = wibox.widget.textclock()
+-- TODO put this in a pill!
 
 screen.connect_signal("request::desktop_decoration", function(s)
     -- Each screen has its own tag table.
@@ -21,7 +22,8 @@ screen.connect_signal("request::desktop_decoration", function(s)
     s.mypromptbox = awful.widget.prompt()
 
    -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, bg = "#00000035", height = 20 })
+    -- s.mywibox = awful.wibar({ position = "top", screen = s, bg = "#00000035", height = 20 })
+    s.mywibox = awful.wibar({ position = "top", screen = s, bg = beautiful.colors[1], height = 30, fg = beautiful.colors[16] })
 
     -- Add widgets to the wibox
     s.mywibox.widget = {
@@ -35,13 +37,11 @@ screen.connect_signal("request::desktop_decoration", function(s)
         { layout = wibox.layout.flex.horizontal },
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            spacing = dpi(10),
+            spacing = dpi(20),
             music,
-            wibox.widget.systray(),
+            -- wibox.widget.systray(),
             battery,
-            mytextclock,
+            require 'widgets.cal',
         },
     }
 end)
--- }}}
-

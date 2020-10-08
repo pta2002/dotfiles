@@ -15,35 +15,37 @@ theme.wallpaper = themes_path .. "theme/background.jpg"
 -- }}}
 
 local colors = {
-    "#16161c",
-    "#1a1c23",
--- Red
-    "#e95678",
-    "#ec6a88",
--- Green
-    "#27d796",
-    "#3fdaa4",
--- Yellow
-    "#fab795",
-    "#fbc3a7",
--- Blue
-    "#26bbd9",
-    "#3fc4de",
--- Magenta
-    "#ee64ac",
-    "#f075b5",
--- Cyan
-    "#59e1e3",
-    "#6be4e6",
--- White
-    "#fdf0ed",
-    "#ffffff",
+    "#282828",
+    "#928374",
+    -- Red
+    "#cc241d",
+    "#fb4934",
+    -- Green
+    "#98971a",
+    "#b8bb26",
+    -- Yellow
+    "#d79921",
+    "#fabd2f",
+    -- Blue
+    "#458588",
+    "#83a598",
+    -- Purple
+    "#b16286",
+    "#d3869b",
+    -- Aqua
+    "#689d6a",
+    "#8ec07c",
+    -- Gray
+    "#a89984",
+    "#ebdbb2"
 }
 
 -- {{{ Styles
 theme.font      = "Hack Nerd Font 11"
 
 -- {{{ Colors
+theme.battery_bar_active_color = colors[9]
+
 theme.fg_normal  = colors[16]
 theme.fg_focus   = colors[15]
 theme.fg_urgent  = colors[3]
@@ -51,6 +53,8 @@ theme.bg_normal  = colors[2]
 theme.bg_focus   = colors[9]
 theme.bg_urgent  = theme.bg_normal
 theme.bg_systray = theme.bg_normal
+
+theme.colors = colors
 
 theme.green = colors[5]
 -- }}}
