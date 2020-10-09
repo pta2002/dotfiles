@@ -46,8 +46,8 @@ beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "termite"
-editor = "emacs"
-editor_cmd = editor
+editor = "nvim"
+editor_cmd = terminal .. ' -c ' .. editor
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
