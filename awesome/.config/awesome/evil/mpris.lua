@@ -28,7 +28,7 @@ end
 
 local function make_playerctl_wrapper(cmd)
   return function()
-    local cmd = "playerctl " .. cmd
+    local cmd = "playerctl -i firefox " .. cmd
 
     awful.spawn.spawn(cmd)
   end

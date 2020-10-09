@@ -22,7 +22,6 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 local volume = require("modules.volume")
 local machine = require("settings")
 local mpris = require("evil.mpris")
-local cpanel = require("modules.cpanel")
 
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -45,10 +44,11 @@ end)
 -- beautiful.init(gears.filesystem.get_themes_dir() .. 'default/theme.lua')
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
 
+local cpanel = require("modules.cpanel")
 -- This is used later as the default terminal and editor to run.
-terminal = "termite"
+terminal = "kitty --single-instance"
 editor = "nvim"
-editor_cmd = terminal .. ' -c ' .. editor
+editor_cmd = terminal .. ' ' .. editor
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -230,7 +230,7 @@ awful.keyboard.append_global_keybindings({
 })
 
 awful.keyboard.append_global_keybindings({
-    awful.key({ modkey,           }, "Tab", cpanel.toggle
+    awful.key({ modkey,           }, "Tab", function() cpanel.show() end,
         {description = "open the control panel", group = "awesome"}),
 })
 
