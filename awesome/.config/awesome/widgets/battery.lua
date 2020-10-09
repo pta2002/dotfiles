@@ -47,8 +47,8 @@ local battery_icon = wibox.widget{
 
 local function get_markup()
     if charging then
-        battery_icon.children[1].widget.markup = determine_icon(value, battery_icons_charge)
-        battery_icon.children[2].markup = '<b>' .. tostring(value) .. '%</b>'
+        battery_icon.children[1].widget.markup = battery_icons_charge[1]
+        battery_icon.children[2].markup = tostring(value) .. '%'
 
         battery_icon.children[1].bg = beautiful.get().green
     else
@@ -58,7 +58,7 @@ local function get_markup()
         if value < 15 then
             battery_icon.children[1].bg = beautiful.get().fg_urgent
         else
-            battery_icon.children[1].widget.bg = active_color
+            battery_icon.children[1].bg = active_color
         end
     end
 end

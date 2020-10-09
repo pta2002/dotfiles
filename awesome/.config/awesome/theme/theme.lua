@@ -78,10 +78,10 @@ theme.taglist_text_occupied = {"", "", "", "", "", "", "", 
 theme.taglist_text_focused  = {"", "", "", "", "", "", "", "", ""}
 theme.taglist_text_urgent   = {"", "", "", "", "", "", "", "", ""}
 
-theme.taglist_text_color_empty = { colors[15], colors[15], colors[15], colors[15], colors[15], colors[15], colors[15], colors[15], colors[15] }
-theme.taglist_text_color_occupied = { colors[15], colors[15], colors[15], colors[15], colors[15], colors[15], colors[15], colors[15], colors[15] }
-theme.taglist_text_color_focused = { colors[9], colors[9], colors[9], colors[9], colors[9], colors[9], colors[9], colors[9], colors[9] }
-theme.taglist_text_color_urgent = { colors[3], colors[3], colors[3], colors[3], colors[3], colors[3], colors[3], colors[3], colors[3] }
+theme.taglist_text_color_empty = { colors[16], colors[16], colors[16], colors[16], colors[16], colors[16], colors[16], colors[16], colors[16] }
+theme.taglist_text_color_occupied = { colors[16], colors[16], colors[16], colors[16], colors[16], colors[16], colors[16], colors[16], colors[16] }
+theme.taglist_text_color_focused = { colors[10], colors[10], colors[10], colors[10], colors[10], colors[10], colors[10], colors[10], colors[10] }
+theme.taglist_text_color_urgent = { colors[4], colors[4], colors[4], colors[4], colors[4], colors[4], colors[4], colors[4], colors[4] }
 
 -- There are other variable sets
 -- overriding the default one when

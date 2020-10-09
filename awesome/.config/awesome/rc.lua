@@ -22,6 +22,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 local volume = require("modules.volume")
 local machine = require("settings")
 local mpris = require("evil.mpris")
+local cpanel = require("modules.cpanel")
 
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -171,14 +172,6 @@ awful.keyboard.append_global_keybindings({
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "Tab",
-        function ()
-            awful.client.focus.history.previous()
-            if client.focus then
-                client.focus:raise()
-            end
-        end,
-        {description = "go back", group = "client"}),
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
@@ -234,6 +227,11 @@ awful.keyboard.append_global_keybindings({
       {description = "go to next song on media player", group = "media"}),
     awful.key({}, "XF86AudioPrev", function () mpris:go_prev() end,
       {description = "go to previous song on media player", group = "media"}),
+})
+
+awful.keyboard.append_global_keybindings({
+    awful.key({ modkey,           }, "Tab", cpanel.toggle
+        {description = "open the control panel", group = "awesome"}),
 })
 
 awful.keyboard.append_global_keybindings({
