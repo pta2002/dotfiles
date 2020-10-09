@@ -35,7 +35,7 @@ local function make_playerctl_wrapper(cmd)
 end
 
 local format_string  = make_format({"title", "artist", "status"})
-local monitor_script = "playerctl metadata -F -f \"" .. format_string .. "\""
+local monitor_script = "playerctl metadata -F -f \"" .. format_string .. "\" -i firefox"
 local status = {}
 local mpris = {
   play = make_playerctl_wrapper("play"),
