@@ -14,7 +14,7 @@ local textclock = {
         bg = require('beautiful').colors[7],
         forced_width = dpi(30)
     },
-    wibox.widget.textclock("%a %d/%m - %H:%M")
+    wibox.widget.textclock("%a %d/%m - %H:%M", 10)
 }
 
 return textclock
