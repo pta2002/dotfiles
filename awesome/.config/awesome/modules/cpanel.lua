@@ -8,7 +8,7 @@ local dpi = require("beautiful.xresources").apply_dpi
 -- Helper function that puts a widget inside a box with a specified background color
 -- Invisible margins are added so that the boxes created with this function are evenly separated
 -- The widget_to_be_boxed is vertically and horizontally centered inside the box
-local function create_boxed_widget(widget_to_be_boxed, width, height, color)
+local function create_boxed_widget(widget_to_be_boxed, width, height, color, padding)
     local box_container = wibox.container.background()
     box_container.bg = beautiful.colors[1]
     box_container.forced_height = height
@@ -39,7 +39,7 @@ local function create_boxed_widget(widget_to_be_boxed, width, height, color)
                     expand = "none"
                 },
                 widget = wibox.container.margin,
-                margins = dpi(12)
+                margins = dpi(padding or 12)
             },
             widget = box_container,
         },
@@ -52,6 +52,8 @@ local function create_boxed_widget(widget_to_be_boxed, width, height, color)
 end
 
 -- Widgets for the panel
+
+-- CALENDAR
 local styles = {}
 styles.month   = { padding      = 20,
     fg_color     = beautiful.colors[16],
@@ -110,7 +112,43 @@ local calendar = create_boxed_widget(wibox.widget {
    spacing = dpi(3),
    fn_embed = decorate_cell,
    widget = wibox.widget.calendar.month
-}, nil, nil, beautiful.colors[13])
+}, nil, nil, beautiful.colors[13], 12)
+
+-- POWER
+local function create_button(text, action, color, font, height)
+   local container = wibox.widget {
+      widget = wibox.container.background,
+      shape = gears.rectangle,
+      shape_border_width = dpi(4),
+      shape_border_color = color,
+      bg = beautiful.colors[1]
+   }
+
+   return wibox.widget {
+      widget = container,
+      {
+         widget = wibox.widget.textbox,
+         markup = text,
+         align = 'center',
+         valign = 'center',
+         font = font or "Hack Nerd Font 15",
+         forced_height = height
+      }
+   }
+end
+
+local power = wibox.widget {
+   widget = wibox.container.margin,
+   margins = dpi(6),
+   {
+      layout = wibox.layout.ratio.horizontal,
+      spacing = dpi(12),
+      create_button('', nil, nil, nil, dpi(50)),
+      create_button('', nil, nil, nil, dpi(50)),
+      create_button('', nil, nil, nil, dpi(50)),
+      create_button('', nil, nil, nil, dpi(50)),
+   }
+}
 
 -- Configure the actual panel
 local cpanel = wibox{
@@ -131,6 +169,7 @@ local cpanel = wibox{
             },
             {
                calendar,
+               power,
                layout = wibox.layout.fixed.vertical,
             },
             layout = wibox.layout.fixed.horizontal,
