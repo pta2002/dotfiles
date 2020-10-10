@@ -3,6 +3,7 @@ local awful = require("awful")
 local wibox = require("wibox")
 local gears = require("gears")
 local beautiful = require("beautiful")
+local power = require("helpers").power
 local dpi = require("beautiful.xresources").apply_dpi
 
 -- Helper function that puts a widget inside a box with a specified background color
@@ -109,7 +110,7 @@ local calendar = create_boxed_widget(wibox.widget {
 }, nil, nil, beautiful.colors[13], 12)
 
 -- POWER
-local function create_button(text, action, color, font, height)
+local function create_button(text, action, color, font, height, hover_color)
    local container = wibox.widget {
       widget = wibox.container.background,
       shape = gears.rectangle,
@@ -118,7 +119,7 @@ local function create_button(text, action, color, font, height)
       bg = beautiful.colors[1]
    }
 
-   return wibox.widget {
+   local ret = wibox.widget {
       widget = container,
       {
          widget = wibox.widget.textbox,
@@ -129,6 +130,36 @@ local function create_button(text, action, color, font, height)
          forced_height = height
       }
    }
+
+   if action then
+      ret:buttons({
+         awful.button({}, 1, action)
+      })
+
+      ret:connect_signal("mouse::enter", function()
+         local w = _G.mouse.current_wibox
+         if w then
+            w.cursor = "hand2"
+         end
+         if hover_color then
+            ret.shape_border_color = hover_color
+            ret.fg = hover_color
+         end
+      end)
+
+      ret:connect_signal("mouse::leave", function()
+         local w = _G.mouse.current_wibox
+         if w then
+            w.cursor = "left_ptr"
+         end
+         if hover_color then
+            ret.shape_border_color = color
+            ret.fg = color
+         end
+      end)
+   end
+
+   return ret
 end
 
 local grid = wibox.widget {
@@ -138,10 +169,10 @@ local grid = wibox.widget {
 }
 
 grid:add_widget_at(calendar, 1, 1, 5, 4)
-grid:add_widget_at(create_button('', nil, nil, nil, dpi(50)), 6, 1, 1, 1)
-grid:add_widget_at(create_button('', nil, nil, nil, dpi(50)), 6, 2, 1, 1)
-grid:add_widget_at(create_button('', nil, nil, nil, dpi(50)), 6, 3, 1, 1)
-grid:add_widget_at(create_button('', nil, nil, nil, dpi(50)), 6, 4, 1, 1)
+grid:add_widget_at(create_button('', power.off   , nil, nil, dpi(50), beautiful.colors[4]), 6, 1, 1, 1)
+grid:add_widget_at(create_button('', power.reboot, nil, nil, dpi(50), beautiful.colors[6]), 6, 2, 1, 1)
+grid:add_widget_at(create_button('', power.logout, nil, nil, dpi(50), beautiful.colors[10]), 6, 3, 1, 1)
+grid:add_widget_at(create_button('', power.lock  , nil, nil, dpi(50), beautiful.colors[7]), 6, 4, 1, 1)
 
 -- Configure the actual panel
 local cpanel = wibox{

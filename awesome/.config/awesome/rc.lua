@@ -172,7 +172,7 @@ awful.keyboard.append_global_keybindings({
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "Tab",
+    awful.key({ "Mod1",           }, "Tab",
         function ()
             awful.client.focus.history.previous()
             if client.focus then
@@ -238,7 +238,7 @@ awful.keyboard.append_global_keybindings({
 })
 
 awful.keyboard.append_global_keybindings({
-    awful.key({ "Mod1",           }, "Tab", function() cpanel.show() end,
+    awful.key({ modkey,           }, "Tab", function() cpanel.show() end,
         {description = "open the control panel", group = "awesome"}),
 })
 

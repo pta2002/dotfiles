@@ -1,17 +1,35 @@
 local gears = require("gears")
-local wibox = require("wibox")
-local beautiful = require("beautiful")
+local awful = require("awful")
 
 local helpers = {}
 
 helpers.rrect = function(radius)
-  return function(c, width, height)
-    gears.shape.rounded_rect(c, width, height, radius)
-  end
+    return function(c, width, height)
+        gears.shape.rounded_rect(c, width, height, radius)
+    end
 end
 
 helpers.colorize_text = function(text, color)
     return "<span foreground='" .. color .."'>" .. text .. "</span>"
+end
+
+helpers.power = {}
+
+function helpers.power.off()
+    awful.spawn("systemctl shutdown")
+end
+
+function helpers.power.reboot()
+    awful.spawn("systemctl reboot")
+end
+
+function helpers.power.logout()
+    awesome.quit()
+end
+
+function helpers.power.lock()
+    -- TODO!!!
+    awful.spawn("notify-send 'not yet'")
 end
 
 return helpers
