@@ -7,7 +7,7 @@ local dpi = require("beautiful.xresources").apply_dpi
 local active_color = beautiful.battery_bar_active_color or "#5AA3CC"
 local background_color = beautiful.battery_bar_background_color or "#222222"
 
-local battery_icons_discharge = {'','','','','','','','','',''}
+local battery_icons_discharge = {'','','','','','','','','','', ''}
 local battery_icons_charge = {''}
 
 local charging = false
@@ -22,7 +22,7 @@ local function round(i)
 end
 
 local function determine_icon(percent, icons)
-    local icon = round(percent / (100 / #icons)) + 1
+    local icon = math.max(1, round(percent / (100 / #icons)))
     return icons[icon]
 end
 

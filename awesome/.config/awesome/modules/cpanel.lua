@@ -20,33 +20,27 @@ local function create_boxed_widget(widget_to_be_boxed, width, height, color, pad
     -- box_container.shape = helpers.prrect(30, true, true, false, true)
 
     local boxed_widget = wibox.widget {
-        -- Add margins
-        {
-            -- Add background color
+         -- Add background color
+         {
             {
-               {
-                   -- Center widget_to_be_boxed horizontally
-                    nil,
-                    {
-                        -- Center widget_to_be_boxed vertically
-                        nil,
-                        -- The actual widget goes here
-                        widget_to_be_boxed,
-                        layout = wibox.layout.align.vertical,
-                        expand = "none"
-                    },
-                    layout = wibox.layout.align.horizontal,
-                    expand = "none"
-                },
-                widget = wibox.container.margin,
-                margins = dpi(padding or 12)
-            },
-            widget = box_container,
-        },
-        margins = dpi(6),
-        color = "#FF000000",
-        widget = wibox.container.margin
-    }
+                -- Center widget_to_be_boxed horizontally
+                 nil,
+                 {
+                     -- Center widget_to_be_boxed vertically
+                     nil,
+                     -- The actual widget goes here
+                     widget_to_be_boxed,
+                     layout = wibox.layout.align.vertical,
+                     expand = "none"
+                 },
+                 layout = wibox.layout.align.horizontal,
+                 expand = "none"
+             },
+             widget = wibox.container.margin,
+             margins = dpi(padding or 12)
+         },
+         widget = box_container,
+     }
 
     return boxed_widget
 end
@@ -137,18 +131,17 @@ local function create_button(text, action, color, font, height)
    }
 end
 
-local power = wibox.widget {
-   widget = wibox.container.margin,
-   margins = dpi(6),
-   {
-      layout = wibox.layout.ratio.horizontal,
-      spacing = dpi(12),
-      create_button('', nil, nil, nil, dpi(50)),
-      create_button('', nil, nil, nil, dpi(50)),
-      create_button('', nil, nil, nil, dpi(50)),
-      create_button('', nil, nil, nil, dpi(50)),
-   }
+local grid = wibox.widget {
+   layout = wibox.layout.grid,
+   spacing = dpi(12),
+   homogenous = false,
 }
+
+grid:add_widget_at(calendar, 1, 1, 5, 4)
+grid:add_widget_at(create_button('', nil, nil, nil, dpi(50)), 6, 1, 1, 1)
+grid:add_widget_at(create_button('', nil, nil, nil, dpi(50)), 6, 2, 1, 1)
+grid:add_widget_at(create_button('', nil, nil, nil, dpi(50)), 6, 3, 1, 1)
+grid:add_widget_at(create_button('', nil, nil, nil, dpi(50)), 6, 4, 1, 1)
 
 -- Configure the actual panel
 local cpanel = wibox{
@@ -163,17 +156,7 @@ local cpanel = wibox{
       nil,
       {
          nil,
-         {
-            {
-               layout = wibox.layout.fixed.vertical,
-            },
-            {
-               calendar,
-               power,
-               layout = wibox.layout.fixed.vertical,
-            },
-            layout = wibox.layout.fixed.horizontal,
-         },
+         grid,
          nil,
          layout = wibox.layout.align.horizontal,
          expand = "none",
