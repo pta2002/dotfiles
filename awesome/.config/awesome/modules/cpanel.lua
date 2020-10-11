@@ -4,6 +4,7 @@ local wibox = require("wibox")
 local gears = require("gears")
 local beautiful = require("beautiful")
 local power = require("helpers").power
+local musicwidget = require("modules.music")
 local dpi = require("beautiful.xresources").apply_dpi
 
 -- Helper function that puts a widget inside a box with a specified background color
@@ -126,7 +127,7 @@ local function create_button(text, action, color, font, height, hover_color)
          markup = text,
          align = 'center',
          valign = 'center',
-         font = font or "Hack Nerd Font 15",
+         font = font or "Font Awesome 15",
          forced_height = height
       }
    }
@@ -162,17 +163,21 @@ local function create_button(text, action, color, font, height, hover_color)
    return ret
 end
 
+-- MUSIC
+local music = create_boxed_widget(musicwidget, nil, nil, beautiful.colors[9], 12)
+
 local grid = wibox.widget {
    layout = wibox.layout.grid,
    spacing = dpi(12),
    homogenous = false,
 }
 
-grid:add_widget_at(calendar, 1, 1, 5, 4)
-grid:add_widget_at(create_button('', power.off   , nil, nil, dpi(50), beautiful.colors[4]), 6, 1, 1, 1)
-grid:add_widget_at(create_button('', power.reboot, nil, nil, dpi(50), beautiful.colors[6]), 6, 2, 1, 1)
-grid:add_widget_at(create_button('', power.logout, nil, nil, dpi(50), beautiful.colors[10]), 6, 3, 1, 1)
-grid:add_widget_at(create_button('', power.lock  , nil, nil, dpi(50), beautiful.colors[7]), 6, 4, 1, 1)
+grid:add_widget_at(music, 1, 1, 2, 4)
+grid:add_widget_at(calendar, 1, 5, 5, 4)
+grid:add_widget_at(create_button('', power.off   , nil, nil, dpi(50), beautiful.colors[4]),  6, 5, 1, 1)
+grid:add_widget_at(create_button('', power.reboot, nil, nil, dpi(50), beautiful.colors[6]),  6, 6, 1, 1)
+grid:add_widget_at(create_button('', power.logout, nil, nil, dpi(50), beautiful.colors[10]), 6, 7, 1, 1)
+grid:add_widget_at(create_button('', power.lock  , nil, nil, dpi(50), beautiful.colors[7]),  6, 8, 1, 1)
 
 -- Configure the actual panel
 local cpanel = wibox{

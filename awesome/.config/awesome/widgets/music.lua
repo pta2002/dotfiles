@@ -1,4 +1,3 @@
-local gears = require("gears")
 local wibox = require("wibox")
 local mpris = require("evil.mpris")
 local dpi = require("beautiful.xresources").apply_dpi
