@@ -19,7 +19,6 @@ local ruled = require("ruled")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
-local volume = require("modules.volume")
 local machine = require("settings")
 local mpris = require("evil.mpris")
 
@@ -45,6 +44,7 @@ end)
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
 
 local cpanel = require("modules.cpanel")
+local volume = require("modules.volume")
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty --single-instance"
 editor = "nvim"

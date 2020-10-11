@@ -57,9 +57,9 @@ styles.month   = { padding      = 20,
     border_width = 0,
 }
 styles.normal  = {}
-styles.focus   = { fg_color = beautiful.colors[4],
+styles.focus   = { fg_color = beautiful.colors[14],
     bg_color = "#ff00ff00",
-    markup   = function(t) return t end,
+    markup   = function(t) return '<b>' .. t .. '</b>' end,
 }
 styles.header  = { fg_color = beautiful.colors[14],
     bg_color = "#ff00ff00",
