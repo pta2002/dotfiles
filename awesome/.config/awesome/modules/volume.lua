@@ -78,6 +78,7 @@ local function popup(value)
     end
     timer = gears.timer.start_new(1, function()
         volume_popup.visible = false
+        return false
     end)
 end
 
