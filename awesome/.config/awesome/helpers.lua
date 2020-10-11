@@ -16,7 +16,7 @@ end
 helpers.power = {}
 
 function helpers.power.off()
-    awful.spawn("systemctl shutdown")
+    awful.spawn("systemctl poweroff")
 end
 
 function helpers.power.reboot()
