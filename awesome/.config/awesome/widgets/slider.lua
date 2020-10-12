@@ -38,6 +38,12 @@ return function(get_icons, slider_action, click_action, refresh_action, color)
         color = color,
     }
 
+    icon:connect_signal("button::press", function(_, _, _, button, _, _)
+        if button ~= 1 then return end
+
+        click_action()
+    end)
+
     bar:connect_signal("button::press", function(self, x, y, button_id, _, geo)
         -- Basically all taken from here:
         -- https://github.com/awesomeWM/awesome/blob/master/lib/wibox/widget/slider.lua#L493

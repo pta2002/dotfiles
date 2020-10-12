@@ -133,12 +133,16 @@ function volume.setvolume(arg)
 end
 
 function volume.togglemute()
-    pamixer_async({"--toggle-mute"})
-    volume.slider:refresh()
+    volume.togglemutenopopup()
     popup(cachedvolume)
 end
 
-volume.slider = slider(geticon, volume.setvolume, volume.togglemute, volume.getvolume, beautiful.colors[9])
+function volume.togglemutenopopup()
+    pamixer_async({"--toggle-mute"})
+    volume.slider:refresh()
+end
+
+volume.slider = slider(geticon, volume.setvolume, volume.togglemutenopopup, volume.getvolume, beautiful.colors[9])
 
 cachedvolume = volume.getvolume()
 
