@@ -80,6 +80,7 @@ hoverize(playpausebutton, beautiful.colors[14])
 hoverize(backbutton, beautiful.colors[14])
 hoverize(fwdbutton, beautiful.colors[14])
 
+-- TODO don't let it overflow!
 local music_status = wibox.widget {
   layout = wibox.layout.fixed.vertical,
   spacing = dpi(10),
@@ -87,12 +88,14 @@ local music_status = wibox.widget {
     markup = '-',
     font   = "Open Sans Bold 17",
     widget = wibox.widget.textbox,
+    forced_width = dpi(300),
     align  = 'center'
   },
   {
     markup = '-',
     font   = "Open Sans Semibold 13",
     widget = wibox.widget.textbox,
+    forced_width = dpi(300),
     align  = 'center'
   },
   {

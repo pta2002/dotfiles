@@ -10,6 +10,7 @@ local slider    = require("widgets.slider")
 local volume = { }
 
 local volumeicons = {'婢', '奄', '奔', '墳'}
+local cachedvolume, muted
 
 local function geticon(vol)
     if vol <= 0 then
@@ -92,30 +93,53 @@ local function pamixer(args)
     return text
 end
 
+local function pamixer_async(args)
+    local command = "pamixer " .. table.concat(args, " ")
+     awful.spawn(command)
+end
+
 function volume.raise()
-    pamixer({"-i", "5"})
-    popup(volume.getvolume())
+    if not muted then
+        cachedvolume = math.min(cachedvolume + 5, 100)
+    end
+    popup(cachedvolume)
+    pamixer_async({"-i", "5"})
+    volume.slider:refresh()
 end
 
 function volume.lower()
-    pamixer({"-d", "5"})
-    popup(volume.getvolume())
+    cachedvolume = math.max(cachedvolume - 5, 0)
+    popup(cachedvolume)
+    pamixer_async({"-d", "5"})
+    volume.slider:refresh()
 end
 
 function volume.getvolume()
-    local volume = pamixer({"--get-volume-human"})
-    if volume == "muted" then
-        return 0
+    local vol = pamixer({"--get-volume-human"})
+    if vol == "muted" then
+        cachedvolume = 0
+        muted = true
     else
-        return tonumber(pamixer({"--get-volume"}))
+        cachedvolume = tonumber(pamixer({"--get-volume"}))
+        muted = false
     end
+    return cachedvolume
+end
+
+function volume.setvolume(arg)
+    pamixer_async{"--unmute"}
+    pamixer_async{"--set-volume", tostring(arg)}
+    volume.slider:refresh()
 end
 
 function volume.togglemute()
-    pamixer({"--toggle-mute"})
-    popup(volume.getvolume())
+    pamixer_async({"--toggle-mute"})
+    volume.slider:refresh()
+    popup(cachedvolume)
 end
 
-volume.slider = slider(geticon, nil, nil, volume.getvolume, beautiful.colors[9])
+volume.slider = slider(geticon, volume.setvolume, volume.togglemute, volume.getvolume, beautiful.colors[9])
+
+cachedvolume = volume.getvolume()
 
 return volume

@@ -109,7 +109,7 @@ local calendar = create_boxed_widget(wibox.widget {
    spacing = dpi(3),
    fn_embed = decorate_cell,
    widget = wibox.widget.calendar.month
-}, nil, nil, beautiful.colors[13], 12)
+}, nil, nil, beautiful.colors[13], dpi(12))
 
 -- POWER
 local function create_button(text, action, color, font, height, hover_color)
@@ -165,7 +165,7 @@ local function create_button(text, action, color, font, height, hover_color)
 end
 
 -- MUSIC
-local music = create_boxed_widget(musicwidget, nil, nil, beautiful.colors[9], 12)
+local music = create_boxed_widget(musicwidget, nil, nil, beautiful.colors[9], dpi(12))
 
 local grid = wibox.widget {
    layout = wibox.layout.grid,
@@ -174,7 +174,7 @@ local grid = wibox.widget {
 }
 
 -- VOLUME
-local volumewidget = create_boxed_widget(volume.slider, nil, nil, beautiful.colors[9], 12)
+local volumewidget = create_boxed_widget(volume.slider, nil, nil, beautiful.colors[9], dpi(12))
 
 grid:add_widget_at(music, 1, 1, 2, 4)
 grid:add_widget_at(volumewidget, 3, 1, 1, 4)
