@@ -1,10 +1,11 @@
 -- Little volume widget for pulseaudio
 -- Requires pamixer
-local awful = require("awful")
-local wibox = require("wibox")
-local gears = require("gears")
+local awful     = require("awful")
+local wibox     = require("wibox")
+local gears     = require("gears")
 local beautiful = require("beautiful")
-local dpi = require("beautiful.xresources").apply_dpi
+local dpi       = require("beautiful.xresources").apply_dpi
+local slider    = require("widgets.slider")
 
 local volume = { }
 
@@ -114,5 +115,7 @@ function volume.togglemute()
     pamixer({"--toggle-mute"})
     popup(volume.getvolume())
 end
+
+volume.slider = slider(geticon, nil, nil, volume.getvolume, beautiful.colors[9])
 
 return volume

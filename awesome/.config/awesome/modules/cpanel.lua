@@ -5,6 +5,7 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 local power = require("helpers").power
 local musicwidget = require("modules.music")
+local volume = require("modules.volume")
 local dpi = require("beautiful.xresources").apply_dpi
 
 -- Helper function that puts a widget inside a box with a specified background color
@@ -172,7 +173,11 @@ local grid = wibox.widget {
    homogenous = false,
 }
 
+-- VOLUME
+local volumewidget = create_boxed_widget(volume.slider, nil, nil, beautiful.colors[9], 12)
+
 grid:add_widget_at(music, 1, 1, 2, 4)
+grid:add_widget_at(volumewidget, 3, 1, 1, 4)
 grid:add_widget_at(calendar, 1, 5, 5, 4)
 grid:add_widget_at(create_button('', power.off   , nil, nil, dpi(50), beautiful.colors[4]),  6, 5, 1, 1)
 grid:add_widget_at(create_button('', power.reboot, nil, nil, dpi(50), beautiful.colors[6]),  6, 6, 1, 1)
