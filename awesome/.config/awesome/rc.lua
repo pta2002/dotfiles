@@ -315,6 +315,13 @@ awful.keyboard.append_global_keybindings({
         modifiers   = {},
         on_press    = volume.lower
     },
+    awful.key {
+        key         = "XF86AudioMute",
+        group       = "system",
+        description = "toggle mute",
+        modifiers   = {},
+        on_press    = volume.togglemute
+    },
     awful.key ({ "Control", "Shift" }, machine.printkey, function()
         awful.spawn('sh -c "maim -s | tee screenshots/$(date -u +\\"%Y-%m-%d%H_%M_%S.png\\") | xclip -sel clipboard -t image/png"')
     end, { description = "Select a region and copy it to clipboard", group = "screenshot"})

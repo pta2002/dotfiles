@@ -11,7 +11,7 @@ local volume = { }
 local volumeicons = {'婢', '奄', '奔', '墳'}
 
 local function geticon(vol)
-    if vol == 0 then
+    if vol <= 0 then
         return volumeicons[1]
     elseif vol < 33 then
         return volumeicons[2]
@@ -102,7 +102,17 @@ function volume.lower()
 end
 
 function volume.getvolume()
-    return tonumber(pamixer({"--get-volume"}))
+    local volume = pamixer({"--get-volume-human"})
+    if volume == "muted" then
+        return 0
+    else
+        return tonumber(pamixer({"--get-volume"}))
+    end
+end
+
+function volume.togglemute()
+    pamixer({"--toggle-mute"})
+    popup(volume.getvolume())
 end
 
 return volume
