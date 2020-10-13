@@ -24,6 +24,7 @@ Plug 'cespare/vim-toml'                 " TOML
 Plug 'bfredl/nvim-luadev'               " Lua REPL
 Plug 'tjdevries/nlua.nvim'              " Lua NVIM LSP
 Plug 'euclidianAce/BetterLua.vim'       " Better Lua highlighting
+Plug   'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " for VimPlug
 
 " IDE things
 Plug 'neovim/nvim-lspconfig'            " Requires v0.5
@@ -115,8 +116,15 @@ set shiftwidth=4 " Indent using 4 spaces
 set autoindent smartindent cindent
 filetype plugin indent on
 
+" Wrap lines on words, not on chars
+set linebreak
+
 " Tab complete case insensitive
 set wildignorecase
+
+" Conceal things
+set conceallevel=2
+let g:tex_conceal="abdgm"
 
 " Ignore things ignored by .gitignore for fzf
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'

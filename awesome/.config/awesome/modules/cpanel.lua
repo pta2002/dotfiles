@@ -7,6 +7,8 @@ local power = require("helpers").power
 local musicwidget = require("modules.music")
 local volume = require("modules.volume")
 local dpi = require("beautiful.xresources").apply_dpi
+local network = require("modules.network")
+network:refresh()
 
 -- Helper function that puts a widget inside a box with a specified background color
 -- Invisible margins are added so that the boxes created with this function are evenly separated
