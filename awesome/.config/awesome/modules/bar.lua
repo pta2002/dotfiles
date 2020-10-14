@@ -5,6 +5,7 @@ local settings = require("settings")
 local music = require("widgets.music")
 local dpi = require("beautiful.xresources").apply_dpi
 local beautiful = require("beautiful")
+local wifi = require("widgets.wifi")
 
 -- TODO put this in a pill!
 
@@ -39,6 +40,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
             layout = wibox.layout.fixed.horizontal,
             spacing = dpi(20),
             music,
+            wifi,
             -- wibox.widget.systray(),
             battery,
             require 'widgets.cal',

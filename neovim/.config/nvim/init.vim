@@ -86,6 +86,7 @@ autocmd FileType lua nnoremap <leader>r <Plug>(Luadev-RunLine)
 autocmd FileType lua vnoremap <leader>r <Plug>(Luadev-Run)
 autocmd FileType lua silent! nnoremap <leader>ll :Luadev<CR>
 
+vnoremap <leader>e :'<,'>Tab/=<CR>
 
 " Color theme
 set termguicolors

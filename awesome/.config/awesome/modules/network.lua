@@ -27,6 +27,12 @@ function networking:refresh()
             is_eth     = is_eth,
             name       = name
         }
+
+        if is_wifi then
+            -- TODO find out how to get this! I'll need to get the device, but
+            -- get_master() is returning nil for whatever reason, so...
+            info.strength = 100
+        end
     end
 
     awesome.emit_signal("network::update", info)

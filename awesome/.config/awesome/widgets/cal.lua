@@ -6,8 +6,9 @@ local textclock = {
     spacing = dpi(10),
     {
         {
-            markup = " ",
-            align = 'left',
+            markup = '',
+            align = 'center',
+            font = 'Font Awesome 5 Pro Solid',
             widget = wibox.widget.textbox,
         },
         widget = wibox.container.background,
