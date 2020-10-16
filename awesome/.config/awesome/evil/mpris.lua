@@ -28,14 +28,14 @@ end
 
 local function make_playerctl_wrapper(cmd)
   return function()
-    local cmd = "playerctl -i firefox " .. cmd
+    local cmd = "playerctl -i firefox,chromium " .. cmd
 
     awful.spawn.spawn(cmd)
   end
 end
 
 local format_string  = make_format({"title", "artist", "status"})
-local monitor_script = "playerctl metadata -F -f \"" .. format_string .. "\" -i firefox"
+local monitor_script = "playerctl metadata -F -f \"" .. format_string .. "\" -i firefox,chromium"
 local status = {}
 local mpris = {
   play = make_playerctl_wrapper("play"),

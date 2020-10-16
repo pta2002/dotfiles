@@ -8,7 +8,7 @@ Plug 'tpope/vim-sensible'               " Some sensible defaults
 Plug 'tpope/vim-endwise'                " Automatically add 'end', 'endif', etc.
 Plug 'tpope/vim-sleuth'                 " Automatically detect indentation
 Plug 'godlygeek/tabular'                " Easily align things with :Tabularize
-Plug 'vimwiki/vimwiki'                  " Knowledge-base
+" Plug 'vimwiki/vimwiki'                  " Knowledge-base
 
 " Theming
 Plug 'vim-airline/vim-airline'          " Nice looking status bar
