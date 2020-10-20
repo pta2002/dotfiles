@@ -60,6 +60,8 @@ nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
 " Use system clipboard by prefixing copy/paste commands with leader
 nnoremap <leader>y "+y
 nnoremap <leader>P "+p
+" Allow C-V in insert mode
+inoremap <C-V> <ESC>"+pa
 
 " ,g to open Git status
 nnoremap <leader>g :Git<CR>
