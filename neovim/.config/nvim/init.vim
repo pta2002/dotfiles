@@ -8,7 +8,6 @@ Plug 'tpope/vim-sensible'               " Some sensible defaults
 Plug 'tpope/vim-endwise'                " Automatically add 'end', 'endif', etc.
 Plug 'tpope/vim-sleuth'                 " Automatically detect indentation
 Plug 'godlygeek/tabular'                " Easily align things with :Tabularize
-" Plug 'vimwiki/vimwiki'                  " Knowledge-base
 
 " Theming
 Plug 'vim-airline/vim-airline'          " Nice looking status bar
@@ -17,14 +16,15 @@ Plug 'ntk148v/vim-horizon'
 Plug 'morhetz/gruvbox'
 
 " Languages
-Plug 'dag/vim-fish'                     " Fish scripting
-Plug 'neovimhaskell/haskell-vim'        " Haskell
-Plug 'ekalinin/Dockerfile.vim'          " Docker
-Plug 'cespare/vim-toml'                 " TOML
-Plug 'bfredl/nvim-luadev'               " Lua REPL
-Plug 'tjdevries/nlua.nvim'              " Lua NVIM LSP
-Plug 'euclidianAce/BetterLua.vim'       " Better Lua highlighting
-Plug   'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " for VimPlug
+Plug 'dag/vim-fish'                                  " Fish scripting
+Plug 'neovimhaskell/haskell-vim'                     " Haskell
+Plug 'ekalinin/Dockerfile.vim'                       " Docker
+Plug 'cespare/vim-toml'                              " TOML
+Plug 'bfredl/nvim-luadev', {'for': 'lua'}            " Lua REPL
+Plug 'tjdevries/nlua.nvim'                           " Lua NVIM LSP
+Plug 'euclidianAce/BetterLua.vim', {'for': 'lua'}    " Better Lua highlighting
+Plug 'tpope/vim-markdown', {'for': 'markdown'}       " Markdown
+Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " Tex
 
 " IDE things
 Plug 'neovim/nvim-lspconfig'            " Requires v0.5
@@ -92,6 +92,7 @@ vnoremap <leader>e :'<,'>Tab/=<CR>
 
 " Color theme
 set termguicolors
+set background=dark
 colorscheme gruvbox
 
 " Enable the mouse
@@ -131,6 +132,8 @@ let g:tex_conceal="abdgm"
 
 " Ignore things ignored by .gitignore for fzf
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
+let g:markdown_fenced_languages = ['lua', 'c', 'sh', 'cpp', 'json', 'python']
 
 " Don't show numbers in the terminal, and start in insert mode
 autocmd TermOpen * setlocal nonumber | :startinsert
