@@ -76,6 +76,13 @@ nnoremap <leader>ff :lua vim.lsp.buf.formatting()<CR>
 nnoremap <leader>n :NextDiagnosticCycle<CR>
 nnoremap <leader>p :PrevDiagnosticCycle<CR>
 
+" Have some convenient leader mappings
+nnoremap <leader>bd :bdelete<CR>
+nnoremap <leader>bn :bn<CR>
+nnoremap <leader>bp :bp<CR>
+nnoremap <leader>wv :vsplit<CR>
+nnoremap <leader>wd :close<CR>
+
 " Use Tab and S-Tab to navigate
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
