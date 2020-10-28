@@ -45,10 +45,15 @@ beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
 
 local cpanel = require("modules.cpanel")
 local volume = require("modules.volume")
+local brightness
+if machine.brightness then
+    brightness = require("modules.brightness")
+end
+
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty --single-instance"
-editor = "nvim"
-editor_cmd = terminal .. ' ' .. editor
+editor = "emacs"
+editor_cmd = editor
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -327,6 +332,24 @@ awful.keyboard.append_global_keybindings({
     end, { description = "Select a region and copy it to clipboard", group = "screenshot"})
 })
 
+if machine.brightness then
+  awful.keyboard.append_global_keybindings {
+    awful.key {
+      key         = "XF86MonBrightnessUp",
+      group       = "system",
+      description = "raise brightness",
+      modifiers   = {},
+      on_press    = brightness.raise,
+    },
+    awful.key {
+      key         = "XF86MonBrightnessDown",
+      group       = "system",
+      description = "lower brightness",
+      modifiers   = {},
+      on_press    = brightness.lower,
+    },
+  }
+end
 
 client.connect_signal("request::default_mousebindings", function()
     awful.mouse.append_client_mousebindings({
