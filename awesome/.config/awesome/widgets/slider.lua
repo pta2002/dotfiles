@@ -41,7 +41,9 @@ return function(get_icons, slider_action, click_action, refresh_action, color)
     icon:connect_signal("button::press", function(_, _, _, button, _, _)
         if button ~= 1 then return end
 
-        click_action()
+        if click_action then
+            click_action()
+        end
     end)
 
     bar:connect_signal("button::press", function(self, x, y, button_id, _, geo)
