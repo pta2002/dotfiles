@@ -186,14 +186,14 @@ local grid = wibox.widget {
 
 -- VOLUME
 local volumewidget = create_boxed_widget(volume.slider, nil, nil, beautiful.colors[9], dpi(12))
-local brightnesswidget
 if brightnessslider then
-    brightnesswidget = create_boxed_widget(brightness.slider, nil, nil, "#d65d0e", dpi(12))
+    local brightnesswidget = create_boxed_widget(brightness.slider, nil, nil, "#d65d0e", dpi(12))
+
+    grid:add_widget_at(brightnesswidget, 4, 1, 1, 4)
 end
 
 grid:add_widget_at(music, 1, 1, 2, 4)
 grid:add_widget_at(volumewidget, 3, 1, 1, 4)
-grid:add_widget_at(brightnesswidget, 4, 1, 1, 4)
 grid:add_widget_at(calendar, 1, 5, 5, 4)
 grid:add_widget_at(create_button('', power.off   , nil, nil, dpi(50), beautiful.colors[4]),  6, 5, 1, 1)
 grid:add_widget_at(create_button('', power.reboot, nil, nil, dpi(50), beautiful.colors[6]),  6, 6, 1, 1)
