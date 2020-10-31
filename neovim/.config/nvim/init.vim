@@ -26,6 +26,7 @@ Plug 'tjdevries/nlua.nvim'                           " Lua NVIM LSP
 Plug 'euclidianAce/BetterLua.vim', {'for': 'lua'}    " Better Lua highlighting
 Plug 'tpope/vim-markdown', {'for': 'markdown'}       " Markdown
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " Tex
+Plug 'LnL7/vim-nix'
 
 " IDE things
 Plug 'neovim/nvim-lspconfig'            " Requires v0.5
