@@ -60,3 +60,7 @@
 ;; Use a decent key to open the ex menu
 (map! :n "ç" 'evil-ex)
 (map! :n "-" 'evil-search-forward)
+
+;; Fix wonky backgrounds on org mode code blocks
+(custom-set-faces!
+  '((org-block org-block-begin-line org-block-end-line) :background nil))

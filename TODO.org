@@ -1,0 +1,9 @@
+#+TITLE: To do
+Here are a couple of things that I still need to do:
+
+* [0/5] Awesome
+** TODO Lock screen
+** TODO Live updating wifi
+** TODO Wifi menu
+** TODO Synced to iCal
+** TODO Run the xrandr command to set the primary display before starting awesome
