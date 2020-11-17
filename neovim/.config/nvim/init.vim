@@ -148,7 +148,7 @@ let g:markdown_fenced_languages = ['lua', 'c', 'sh', 'cpp', 'json', 'python']
 autocmd TermOpen * setlocal nonumber | :startinsert
 
 " Load Lua init file
-lua require 'init'
+" lua require 'init'
 
 " LSP things!
 autocmd Filetype c setlocal omnifunc=v:lua.vim.lsp.omnifunc
