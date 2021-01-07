@@ -145,6 +145,8 @@ awful.keyboard.append_global_keybindings({
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey,           }, "e", function () awful.spawn(editor_cmd) end,
               {description = "open emacs", group = "launcher"}),
+    awful.key({                   }, "XF86Calculator", function () awful.spawn(terminal .. "-e qalc") end,
+              {description = "open emacs", group = "launcher"}),
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
     awful.key({ modkey },            "space",     function () awful.spawn("rofi -show drun") end,

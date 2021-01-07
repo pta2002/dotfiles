@@ -10,7 +10,7 @@ local update_interval = 30
 
 local battery_script = [[
     sh -c "
-    upower -i $(upower -e | grep BAT) | grep percentage | awk '{print $2}'
+    acpi -b | awk -F',' '{ print $2 }' | tr -d ' %'
     "
 ]]
 
@@ -23,7 +23,7 @@ local charger_script = [[
 
 -- Periodically get battery info
 awful.widget.watch(battery_script, update_interval, function(widget, stdout)
-    local battery = stdout:gsub("%%", "")
+    local battery = stdout
     awesome.emit_signal("evil::battery", tonumber(battery))
 end)
 
