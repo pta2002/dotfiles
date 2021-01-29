@@ -19,19 +19,17 @@ local music_status = wibox.widget {
     forced_width = dpi(30)
   },
   {
-    markup = 'Not playing',
+    text = 'Not playing',
     widget = wibox.widget.textbox
   }
 }
 
 local function get_markup()
   if status.title and status.artist ~= "" then
-    status.title = status.title:gsub("&", "&amp;")
-    status.artist = status.artist:gsub("&", "&amp;")
-    music_status.children[2].markup = status.artist .. ' - ' .. status.title
+    music_status.children[2].text = status.artist .. ' - ' .. status.title
   elseif status.title then
     status.title = status.title:gsub("&", "&amp;")
-    music_status.children[2].markup = status.title
+    music_status.children[2].text = status.title
   end
 end
 
