@@ -53,4 +53,6 @@ function mpris:emit_mpris_info()
   awful.spawn.with_line_callback(monitor_script, { stdout = parse_format(status) })
 end
 
+mpris.parse_format = parse_format
+
 return mpris
