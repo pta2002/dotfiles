@@ -13,6 +13,7 @@ local volumeicons = {'婢', '奄', '奔', '墳'}
 local cachedvolume, muted
 
 local function geticon(vol)
+    vol = vol or 0
     if vol <= 0 then
         return volumeicons[1]
     elseif vol < 33 then
