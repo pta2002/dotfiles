@@ -1,0 +1,47 @@
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d6a
+set $gray #a89984
+set $lgray #928374
+set $lred #fb4934
+set $lgreen #b8bb26
+set $lyellow #fabd2f
+set $lblue #83a598
+set $lpurple #d3869b
+set $laqua #8ec07c
+set $fg #ebdbb2
+
+set $bg0_h #1d2021
+set $bg0 #282828
+set $bg1 #3c3836
+set $bg2 #504945
+set $bg3 #665c54
+set $bg4 #7c6f64
+set $orange #d65d0e
+set $bg0_s #32302f
+set $fg0 #fbf1c7
+set $fg1 #ebdbb2
+set $fg2 #d5c4a1
+set $fg3 #bdae93
+set $fg4 #a89984
+set $lorange #fe8019
+
+gaps inner 5
+
+output * bg ./bg.jpg fill
+
+smart_borders on
+
+title_align center
+
+default_border pixel 4
+default_floating_border pixel 4
+
+client.unfocused $bg2 $bg1 $bg4 $blue $bg1
+client.focused $blue $blue $fg $lblue $blue
+
+output * bg $bg solid_color
